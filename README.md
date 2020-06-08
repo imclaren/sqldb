@@ -4,7 +4,7 @@ sqldb allows access to databases in golang.  It is a thin wrapper around github.
 It is designed to allow the reuse of the same code for multiple types of databases (see the insert and all functions below), and for database specific sql where required (see the createTable function below).
 
 ```
-// Item is a cache item struct
+// Item is a cache item
 type Item struct {
 	Id              int
 	Bucket 			string 		`db:"bucket"`
