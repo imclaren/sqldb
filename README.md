@@ -119,7 +119,7 @@ func createTable(db *sqldb.DB) error {
 				access_count BIGINT, 
 				expires_at TIMESTAMP, 
 				created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-			updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+				updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
 			)
 		`)
 		if err != nil {
