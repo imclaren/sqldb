@@ -4,6 +4,18 @@ sqldb allows access to databases in golang.  It is a thin wrapper around github.
 It is designed to allow the reuse of the same code for multiple types of databases (see the insert and all functions below), and for database specific sql where required (see the createTable function below).
 
 ```
+// Item is a cache item struct
+type Item struct {
+	Id              int
+	Bucket 			string 		`db:"bucket"`
+	Key 			string 		`db:"key"`
+	Size 			int64 		`db:"size"`
+	AccessCount 	int64  		`db:"access_count"`
+	ExpiresAt 		time.Time  	`db:"expires_at"`
+	CreatedAt       time.Time 	`db:"created_at"`
+	UpdatedAt       time.Time 	`db:"updated_at"`
+}
+
 func main() {
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancelFunc()
