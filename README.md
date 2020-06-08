@@ -7,11 +7,11 @@ It is designed to allow the reuse of the same code for multiple types of databas
 // Item is a cache item
 type Item struct {
 	Id              int
-	Bucket 			string 		`db:"bucket"`
-	Key 			string 		`db:"key"`
-	Size 			int64 		`db:"size"`
+	Bucket 		string 		`db:"bucket"`
+	Key 		string 		`db:"key"`
+	Size 		int64 		`db:"size"`
 	AccessCount 	int64  		`db:"access_count"`
-	ExpiresAt 		time.Time  	`db:"expires_at"`
+	ExpiresAt 	time.Time  	`db:"expires_at"`
 	CreatedAt       time.Time 	`db:"created_at"`
 	UpdatedAt       time.Time 	`db:"updated_at"`
 }
@@ -90,8 +90,8 @@ func createTable(db *sqldb.DB) error {
 	    		size INT,
 	    		access_count INT,
 	    		expires_at TIMESTAMP,
-				created_at TIMESTAMP NULL DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')),
-			    updated_at TIMESTAMP NULL DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))	    		
+			created_at TIMESTAMP NULL DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')),
+			updated_at TIMESTAMP NULL DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))	    		
     			)
     		`)
 		if err != nil {
@@ -119,7 +119,7 @@ func createTable(db *sqldb.DB) error {
 				access_count BIGINT, 
 				expires_at TIMESTAMP, 
 				created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-			    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+			updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
 			)
 		`)
 		if err != nil {
