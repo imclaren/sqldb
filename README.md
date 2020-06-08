@@ -39,7 +39,7 @@ func main() {
 	}
 }
 
-func insert(db *DB, bucket, key string, size, access_count int64, expires_at time.Time) error {
+func insert(db *sqldb.DB, bucket, key string, size, access_count int64, expires_at time.Time) error {
 	db.Mutex.Lock()
 	defer db.Mutex.Unlock()
 
@@ -54,7 +54,7 @@ func insert(db *DB, bucket, key string, size, access_count int64, expires_at tim
 	return err
 }
 
-func all(db *DB) ([]Item, error) {
+func all(db *sqldb.DB) ([]Item, error) {
 	db.Mutex.RLock()
 	defer db.Mutex.RUnlock()
 
